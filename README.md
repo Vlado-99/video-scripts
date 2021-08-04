@@ -4,8 +4,8 @@ Set of scripts to convert videorecordings using ffmpeg tools.
 # prerequisities
 
   * Windows operating system
-  * Installed [https://ffmpeg.org/download.html|ffmpeg tools] into `C:\mediatools\ffmpeg` directory
-  * Installed [https://strawberryperl.com/|Strawberry Perl] into usual location `C:\Strawberry`
+  * Installed [ffmpeg tools](https://ffmpeg.org/download.html) into `C:\mediatools\ffmpeg` directory
+  * Installed [Strawberry Perl](https://strawberryperl.com/) into usual location `C:\Strawberry`
 
 # installation
 
