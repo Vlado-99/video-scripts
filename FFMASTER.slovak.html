@@ -1,0 +1,61 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:" />
+</head>
+
+<body>
+
+
+
+<h1 id="Nzov">N&aacute;zov</h1>
+
+<p><b>FFMASTER.pl</b> - interakt&iacute;vna tvorba &uacute;loh pre konverziu video s&uacute;borov / spracovanie pripraven&yacute;ch &uacute;loh</p>
+
+<h1 id="Verzia">Verzia</h1>
+
+<p>T&aacute;to verzia je ur&#x10D;en&aacute; pre beh pod Strawberry Perl (pod Windows).</p>
+
+<h1 id="Prklad-1---interaktvna-prprava-konverzi">Pr&iacute;klad 1 - interakt&iacute;vna pr&iacute;prava konverzi&iacute;</h1>
+
+<p><code>FFMASTER.pl fileA [fileB ...]</code></p>
+
+<p>Ak n&aacute;zov (n&aacute;zvy) s&uacute;borov obsahuj&uacute; &#x10D;&iacute;slo, vytvor&iacute; sa vstupn&aacute; mno&#x17E;ina zo v&scaron;etk&yacute;ch podobne &#x10D;&iacute;slovan&yacute;ch s&uacute;borov v zadan&yacute;ch adres&aacute;roch. Ak vstupn&aacute; mno&#x17E;ina pozost&aacute;va z viac ne&#x17E; jedn&eacute;ho s&uacute;boru, konvertova&#x165; sa bude spojenie s&uacute;borov. Ktor&eacute; s&uacute;bory z mno&#x17E;iny naozaj vst&uacute;pia do sp&aacute;jania, a v akom porad&iacute;, ur&#x10D;&iacute; interakt&iacute;vne pou&#x17E;&iacute;vate&#x13E;.</p>
+
+<p><b>POZOR:</b> V&scaron;etky sp&aacute;jan&eacute; s&uacute;bory musia ma&#x165; rovnak&eacute; usporiadanie streamov!</p>
+
+<p>Ak je na vstupe viac ne&#x17E; jeden video stream, alebo viac ne&#x17E; jeden audio stream alebo aspo&#x148; jedny titulky (po vynechan&iacute; streamov pre telesne postihnut&yacute;ch a pod.), vyber&aacute; si pou&#x17E;&iacute;vate&#x13E; ktor&eacute; streamy chce prenies&#x165; do v&yacute;stupn&eacute;ho s&uacute;boru.</p>
+
+<p>Na z&aacute;ver, po vo&#x13E;be konverzie videa a audia, vytvor&iacute; FFMASTER job (s&uacute;bor <code>job-NNNNNN.ready</code> v ur&#x10D;enom adres&aacute;ri) a kon&#x10D;&iacute;.</p>
+
+<h1 id="Prklad-2---dvkov-spracovanie-loh">Pr&iacute;klad 2 - d&aacute;vkov&eacute; spracovanie &uacute;loh</h1>
+
+<p><code>FFMASTER.pl --go</code></p>
+
+<p>FFMASTER sa na&scaron;tartuje v d&aacute;vkovom re&#x17E;ime, kedy postupne sprac&uacute;va v&scaron;etky pripraven&eacute; job-y (<code>job-NNNNNN.ready</code>) a skon&#x10D;&iacute; a&#x17E; po tom, ako s&uacute; v&scaron;etky spracovan&eacute;.</p>
+
+<h1 id="Job-sbor">Job s&uacute;bor</h1>
+
+<p>Job s&uacute;bor, pripraven&yacute; na vykonanie, m&aacute; n&aacute;zov <code>job-NNNNNN.ready</code>. Pr&aacute;ve sprac&uacute;van&yacute; job s&uacute;bor m&aacute; n&aacute;zov <code>job-NNNNNN.doing</code>. Bezchybne vykonan&yacute; job s&uacute;bor m&aacute; n&aacute;zov <code>job-NNNNNN.done</code>. Ak spracovanie skon&#x10D;ilo chybou, m&aacute; s&uacute;bor n&aacute;zov <code>job-NNNNNN.failed</code>.</p>
+
+<p><code>NNNNNN</code> v n&aacute;zve s&uacute;boru je &#x10D;&iacute;slo.</p>
+
+<p>Obsah s&uacute;boru je tvoren&yacute; jedn&yacute;m (alebo viacer&yacute;mi???) pr&iacute;kazmi pre shell (cmd). Pred t&yacute;m, ako sa obsah odovzd&aacute; shellu na vykonanie, urobia sa substit&uacute;cie: ka&#x17E;d&yacute; v&yacute;skyt <code>%varname%</code> sa nahrad&iacute; obsahom pr&iacute;slu&scaron;nej environment premennej, s v&yacute;nimkou pr&iacute;padu <code>%%</code>.</p>
+
+<h1 id="Prklad-3---prehrvanie-mdi">Pr&iacute;klad 3 - prehr&aacute;vanie m&eacute;di&iacute;</h1>
+
+<p><code>FFMASTER.pl --play fileA [fileB ...]</code></p>
+
+<p>Pon&uacute;kne mo&#x17E;nos&#x165; zostavi&#x165; mno&#x17E;inu s&uacute;borov na prehr&aacute;vanie, podobne ako v pr&iacute;klade #1 a tie potom za&#x10D;ne prehr&aacute;va&#x165; v zmen&scaron;enom okne. V inom okne sa zobrazuje pr&aacute;ve prehr&aacute;van&aacute; poz&iacute;cia v s&uacute;bore (je to prv&eacute; &#x10D;&iacute;slo na poslednom riadku).</p>
+
+<p>Zadan&iacute;m po&#x10D;iato&#x10D;nej a/alebo koncovej poz&iacute;cie prehr&aacute;vania do FFMASTER sa dosiahne orez pred konverziou.</p>
+
+
+</body>
+
+</html>
+
+
